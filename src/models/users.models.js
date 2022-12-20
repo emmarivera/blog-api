@@ -43,5 +43,11 @@ const Users = db.define('users', {
         type: DataTypes.STRING(3)
     }
 })
+/*
+status: {
+    type: DataTypes.STRING()
+    defaultValue: 'active'
+}
+*/ 
 
 module.exports = Users

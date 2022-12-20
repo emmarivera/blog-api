@@ -39,9 +39,31 @@ const findUserByEmail = async (email) => {
     return data
 }
 
+const updateUser = async (id, obj) => {
+    const data = await Users.update(obj, {
+        where: {
+            id: id
+        }
+    })
+    return data[0] //? Retorna un arreglo, este arreglo puede lucir de estas 2 maneras [1], [0]
+}
+
+const deleteUser = async (id) => {
+    const data = await Users.destroy({
+        where: {
+            id: id
+        }
+    })
+    return data //? Retorna 1 en caso de que se haya eliminado, o 0 en caso de que el id no exista
+
+}
+
+
 module.exports = {
     findAllUsers,
     findUserById,
     createUser,
-    findUserByEmail
+    findUserByEmail,
+    deleteUser,
+    updateUser
 }
